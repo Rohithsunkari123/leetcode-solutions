@@ -9,7 +9,6 @@ class Solution(object):
                 l+=1
             else:
                 r-=1
-            res=max(res,area)
+            res=max(area,res)
         return res
-        
         
