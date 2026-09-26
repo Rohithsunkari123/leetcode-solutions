@@ -1,22 +1,21 @@
 class Solution:
     def minimizeMax(self, nums: List[int], p: int) -> int:
+        nums.sort()
         if p==0: return 0
-        
         def isvalid(t):
-            i=0
-            cnt=0
-            while i<len(nums)-1:
+            i,cnt=0,0
+            while i < len(nums)-1:
                 if abs(nums[i]-nums[i+1])<=t:
-                    i+=2
                     cnt+=1
+                    i+=2
                 else:
                     i+=1
-            return cnt>=p
-
+                if cnt==p:
+                    return True
+            return False
         l=0
         r=10**9
         res=r
-        nums.sort()
         while l <= r:
             m=l+(r-l)//2
             if isvalid(m):
@@ -25,4 +24,3 @@ class Solution:
             else:
                 l=m+1
         return res
-        
