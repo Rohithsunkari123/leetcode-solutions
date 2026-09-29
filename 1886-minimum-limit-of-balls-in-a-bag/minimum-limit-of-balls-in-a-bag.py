@@ -13,7 +13,8 @@ class Solution:
         res=0
 
         while l <= r:
-            m=(l+r)//2
+            m=l+(r-l)//2
+        
             if isvalid(m):
                 r=m-1
                 res=m
